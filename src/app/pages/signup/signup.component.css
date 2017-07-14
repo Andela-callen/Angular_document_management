@@ -1,0 +1,11 @@
+.signup-card {
+  width: 600px;
+}
+
+.md-header{
+  color:primary;
+}
+
+.form-spacer {
+  flex: 1 1 auto;
+}

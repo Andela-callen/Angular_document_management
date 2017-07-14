@@ -1,0 +1,95 @@
+<md-card class="signup-card">
+  <md-card-header>
+    <md-card-title>
+      <h2>Sign Up with DBox</h2>
+    </md-card-title>
+    <md-card-subtitle>
+      <p>Join thousands of people using Dbox to manage documents</p>
+    </md-card-subtitle>
+  </md-card-header>
+
+  <md-card-content>
+    
+  <form [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit()">
+    <div class="form-group" [ngClass]="{
+      'has-danger': signupForm.controls.firstname.invalid && signupForm.controls.firstname.dirty,
+      'has-success': signupForm.controls.firstname.valid && signupForm.controls.firstname.dirty}">
+    <label>Firstname
+      <input
+        type="text"
+        name="first name"
+        formControlName="firstname"
+        placeholder="Your First Name"
+        required>
+    </label>
+      <div class ='' *ngIf="firstname.invalid && firstname.dirty">Firstname is required</div>
+    </div>
+    <div>
+    <label>
+      <span>Lastname</span>
+      <input
+        type="text"
+        name="last name"
+        formControlName="lastname"
+        placeholder="Your Last Name"
+        required>
+    </label>
+      <div class ='' *ngIf="lastname.invalid && lastname.dirty">Lastname (Surname) is required</div>
+    </div>
+    <label>
+        <span>Username</span>
+        <input
+          type="username"
+          name="username"
+          formControlName="username"
+          placeholder="Your username"
+          required>
+      </label>
+        <div class='' *ngIf="username.invalid && username.dirty">Username is required</div>
+    <div>
+      <label>
+        <span>Email address</span>
+        <input
+          type="email"
+          name="email"
+          formControlName="email"
+          placeholder="Your email address"
+          required>
+      </label>
+        <div class='' *ngIf="email.invalid && username.dirty">Username is required</div>
+    </div>
+
+    <div class="form-group" formGroupName="passwordGroup">
+      <label>
+        <span>Password</span>
+        <input
+          type="password"
+          name="password"
+          formControlName="password"
+          placeholder="Your password"
+          required>
+      </label>
+        
+      <label>
+        <span>Confirm Password</span>
+        <input
+          type="password"
+          name="confirm"
+          formControlName="confirm_password"
+          placeholder="Confirm your password"
+          required>
+          </label>
+    </div>
+  </form>
+  </md-card-content>
+
+  <md-card-actions>
+    <button md-button type="submit">Sign up</button>
+    <div><p></p></div>
+  </md-card-actions>
+</md-card>
+<pre>Touched? {{ signupForm.controls.email.touched }}</pre>
+<pre>Valid? {{ signupForm.controls.email.valid }}</pre>
+<pre>{{signupForm.value | json}}</pre>
+<pre>Dirty? {{ signupForm.controls.email.dirty }}</pre>
+<pre>Pristine? {{ signupForm.controls.email.pristine }}</pre>
